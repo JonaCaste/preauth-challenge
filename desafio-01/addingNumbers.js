@@ -6,15 +6,12 @@ const addingNumbers = (numbers, sum) => {
             if(num < 0) throw "Alguno de los números no es natural";
             if (num % 1 == 0) throw "Alguno de los números no es natural";
         })*/
-        numbers.map(num => {
+        numbers.map((num, index) => {
             let expected = sum - num;
-            let numbersFilter = numbers.filter(el =>  el !== num);
-            numbersFilter.map( () => {
-                if(numbersFilter.includes(expected)){
-                    //throw error to stop iterations
-                    throw [num, expected];
-                }
-            })
+            if(numbers.includes(expected) && index!==numbers.indexOf(expected)){
+                //throw error to stop iterations
+                throw [num, expected];
+            }
         })
     }
     catch(err){
