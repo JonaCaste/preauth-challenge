@@ -21,4 +21,3 @@ const addingNumbers = (numbers, sum) => {
         return result = err;
     }
 }
-

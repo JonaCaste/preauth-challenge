@@ -36,15 +36,17 @@ export class GildedRose {
         if(name == "Sulfuras, Hand of Ragnaros") productCode = 2;
         if(name == "Backstage passes to a TAFKAL80ETC concert") productCode = 3;
 
-        return {productCode, isConjured};
+        return [productCode, isConjured];
     }
 
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
 
+            let [code, isConjured] = this.defineProduct(this.items[i].name);
+
             let product: Product = {
-                code: this.defineProduct(this.items[i].name).productCode,
-                isConjured: this.defineProduct(this.items[i].name).isConjured,
+                code,
+                isConjured,
                 isExpired: false,
                 isDevalued: false,
             }
